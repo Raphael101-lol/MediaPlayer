@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abyzmos Media Player - Play your music and video files">
+  <title>Abyzmos Media Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-logo">
+      <img src="LogoScreen.png" alt="Abyzmos Media Player Logo">
+      <div class="loading-text">Loading Media Player...</div>
+    </div>
+  </div>
+  
+  <header>
+    <div class="logo">
+      <img src="Logo.jpg" alt="Abyzmos Media Player Logo">
+      <h1>Abyzmos Media Player</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showSection('home')" role="button" aria-label="Home">Home</a></li>
+        <li><a href="#" onclick="showSection('music')" role="button" aria-label="Music">Music</a></li>
+        <li><a href="#" onclick="showSection('video')" role="button" aria-label="Video">Video</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="home-screen section" id="home">
+      <div class="home-container">
+        <div class="home-button" onclick="showSection('music')" role="button" tabindex="0" aria-label="Music Section">🎵 Music</div>
+        <div class="home-button" onclick="showSection('video')" role="button" tabindex="0" aria-label="Video Section">📺 Video</div>
+      </div>
+    </div>
+  
+    <!-- MUSIC SECTION -->
+    <div class="music-section section" id="music">
+      <h2>Your Music</h2>
+      <div class="upload-container">
+        <label class="upload-btn" for="musicInput" tabindex="0">Upload Music</label>
+        <input type="file" id="musicInput" class="hidden-input" accept="audio/*" multiple>
+      </div>
+  
+      <div class="music-player-container" id="musicPlayerContainer" style="display:none;">
+        <div class="album-cover" id="albumCover"></div>
+        <div class="player-controls">
+          <button id="prevTrack" aria-label="Previous track">&#9664;</button>
+          <button id="playPause" aria-label="Play/Pause">&#9654;</button>
+          <button id="nextTrack" aria-label="Next track">&#9654;</button>
+        </div>
+        <div class="song-info">
+          <h3 id="songTitle">No song selected</h3>
+          <p id="songArtist">Select a song to play</p>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBarContainer">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-thumb" id="progressThumb"></div>
+          </div>
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+      </div>
+  
+      <div id="musicList" class="music-list"></div>
+    </div>
+  
+    <!-- VIDEO SECTION -->
+    <div class="video-section section" id="video">
+      <div class="video-header-container">
+        <label class="video-upload-btn" id="videoUploadBtn" for="videoInput" tabindex="0">Upload Video</label>
+        <input type="file" id="videoInput" class="hidden-input" accept="video/*" multiple>
+        <h2>Watch Videos</h2>
+      </div>
+  
+      <div class="video-grid">
+        <div class="video-player-main" id="mainVideoPlayer">
+          <div style="display: flex; justify-content: center; align-items: center; height: 100%; min-height: 300px; color: #aaa;">
+            <p>Select a video to play from the sidebar</p>
+          </div>
+        </div>
+        <div class="video-sidebar" id="videoSidebar">
+          <div style="color: #aaa; padding: 20px; text-align: center;">
+            <p>Upload videos to see them here</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="recently-played" id="recentlyPlayed">
+        <h3 class="recently-played-title">Recently Played</h3>
+        <div class="recently-played-container" id="recentlyPlayedContainer">
+          <div style="color: #aaa; padding: 20px; text-align: center; width: 100%;">
+            <p>Your recently played videos will appear here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="copyright">
+        &copy; <span id="currentYear">2025</span> Abyzmos Media Player. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="Script.js"></script>
+</body>
+</html>
